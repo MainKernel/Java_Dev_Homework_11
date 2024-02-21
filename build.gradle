@@ -1,0 +1,38 @@
+plugins {
+  id 'java'
+  id 'war'
+}
+
+group 'no.groupId'
+version '1.0-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+ext {
+  junitVersion = '5.10.0'
+  thymeleafVersion = '3.1.2.RELEASE'
+  servletVersion = '6.0.0'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+}
+
+dependencies {
+  compileOnly("jakarta.servlet:jakarta.servlet-api:${servletVersion}")
+
+  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+  implementation("org.thymeleaf:thymeleaf:${thymeleafVersion}")
+
+}
+
+test {
+useJUnitPlatform()}
