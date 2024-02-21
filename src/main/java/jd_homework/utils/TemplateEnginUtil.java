@@ -13,6 +13,7 @@ public class TemplateEnginUtil {
         FileTemplateResolver resolver = new FileTemplateResolver();
         // path ./webapp/templates/ doesn't work in my case
         // because tomcat try to get templates from ./tomcat/bit/webapp/template/
+        // need to change to your directory
         resolver.setPrefix("/home/mightyloot/IdeaProjects/JD_Homework_11/src/main/webapp/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
